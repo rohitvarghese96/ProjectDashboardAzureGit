@@ -34,9 +34,9 @@ stages:
           git config --global user.email "rohitvarghese96@gmail.com"
           git config --global user.name "rohitvarghese96"
 
-          cd $(Build.SourcesDirectory)
+          
           echo "Listing current files"
-          dir
+          gci
           
           git checkout master
           git ls-files
