@@ -14,16 +14,18 @@ stages:
   jobs:
   - job: DOWNLOAD_BUILD_ARTIFACTS
     steps:
-      - checkout: self
-
       - task: PowerShell@2
         inputs:
           targetType: 'inline'
           script: |
-            gci
+            Write-Host "Listing current files"
+            cd $Env:Agent.BuildDirectory
+            cd work/1/
+            mkdir AzureStaticWebArtifact
+            cd AzureStaticWebArtifact
             git config --global user.email "rohitvarghese96@gmail.com"
             git config --global user.name "rohitvarghese96"
-            git checkout master
+            git clone https://github.com/rohitvarghese96/ProjectDashboardAzureGit.git
             git ls-files
           errorActionPreference: 'continue'
 
@@ -37,15 +39,16 @@ stages:
           downloadType: 'single'
           artifactName: 'AzureStaticWebArtifact'
           downloadPath: '$(Agent.BuildDirectory)'
+
+
       - task: PowerShell@2
         inputs:
           targetType: 'inline'
           script: |
-            git ls-files
-            Write-Host "Listing current files"
-            cd $Env:Agent.BuildDirectory
-            cd work/1/AzureStaticWebArtifact
+            gci
           errorActionPreference: 'continue'
+
+
 
       
 
