@@ -14,19 +14,17 @@ stages:
   jobs:
   - job: DOWNLOAD_BUILD_ARTIFACTS
     steps:
-     - task: DownloadBuildArtifacts@0
-       inputs:
-         buildType: 'specific'
-         project: '57f8459e-5e74-46ce-a70f-04ca96dc4f66'
-         pipeline: '14'
-         specificBuildWithTriggering: true
-         buildVersionToDownload: 'latest'
-         downloadType: 'single'
-         artifactName: 'AzureStaticWebArtifact'
-         downloadPath: '$(Agent.BuildDirectory)'
-         
-  - job: DEPLOY_ARTIFACTS
-    steps:
+      - task: DownloadBuildArtifacts@0
+        inputs:
+          buildType: 'specific'
+          project: '57f8459e-5e74-46ce-a70f-04ca96dc4f66'
+          pipeline: '14'
+          specificBuildWithTriggering: true
+          buildVersionToDownload: 'latest'
+          downloadType: 'single'
+          artifactName: 'AzureStaticWebArtifact'
+          downloadPath: '$(Agent.BuildDirectory)'
+          
       - task: PowerShell@2
         inputs:
           targetType: 'inline'
@@ -36,6 +34,10 @@ stages:
             cd work/1/AzureStaticWebArtifact
             gci
           errorActionPreference: 'continue'
+
+      
+          
+
 
 
 
