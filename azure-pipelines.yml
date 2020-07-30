@@ -54,7 +54,7 @@ stages:
             git checkout origin/master
             git add --all
             git commit -m "Azure pipeline build"
-            git merge origin master
+            git push
           errorActionPreference: 'continue'
 
 
