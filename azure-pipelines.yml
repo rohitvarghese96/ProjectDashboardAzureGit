@@ -31,9 +31,6 @@ stages:
             Write-Host "Listing current files"
             cd $Env:Agent.BuildDirectory
             cd work/1/AzureStaticWebArtifact
-            gci
-            git checkout master
-            git ls-files
           errorActionPreference: 'continue'
 
       - checkout: self
@@ -45,7 +42,6 @@ stages:
             gci
             git config --global user.email "rohitvarghese96@gmail.com"
             git config --global user.name "rohitvarghese96"
-            git clone https://github.com/rohitvarghese96/ProjectDashboardAzureGit.git
             git checkout master
             git ls-files
           errorActionPreference: 'continue'
