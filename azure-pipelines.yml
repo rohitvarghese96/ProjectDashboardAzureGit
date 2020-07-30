@@ -33,6 +33,8 @@ stages:
             cd $Env:Agent.BuildDirectory
             cd work/1/AzureStaticWebArtifact
             gci
+            git checkout master
+            git ls-files
           errorActionPreference: 'continue'
 
       
