@@ -24,10 +24,7 @@ stages:
          downloadType: 'single'
          artifactName: 'AzureStaticWebArtifact'
          downloadPath: '$(Agent.BuildDirectory)'
-
-
-- stage: DEPLOY_ARTIFACTS
-  jobs:
+         
   - job: DEPLOY_ARTIFACTS
     steps:
       - task: PowerShell@2
@@ -39,6 +36,7 @@ stages:
             cd work/1/AzureStaticWebArtifact
             gci
           errorActionPreference: 'continue'
+
 
 
 
