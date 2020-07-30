@@ -23,13 +23,27 @@ stages:
           buildVersionToDownload: 'latest'
           downloadType: 'single'
           artifactName: 'AzureStaticWebArtifact'
-          downloadPath: '$(Build.ArtifactStagingDirectory)'
+          downloadPath: '$(Build.SourcesDirectory)'
 
 
 - stage: DEPLOY_ARTIFACTS
   jobs:
   - job: DEPLOY_ARTIFACTS
     steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '10.x'
+        displayName: 'Install Node.js'
+
+      - script: |
+          git config --global user.email "rohitvarghese96@gmail.com"
+          git config --global user.name "rohitvarghese96"
+
+          git checkout branch
+          git ls-files
+
+
+
 
 
 
