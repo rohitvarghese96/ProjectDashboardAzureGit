@@ -9,11 +9,19 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+stages:
+- stage: DOWNLOAD_BUILD_ARTIFACTS
+  jobs:
+  - job: DOWNLOAD_BUILD_ARTIFACTS
+    steps:
+      - task: DownloadBuildArtifacts@0
+        inputs:
+          buildType: 'specific'
+          project: '57f8459e-5e74-46ce-a70f-04ca96dc4f66'
+          pipeline: '12'
+          specificBuildWithTriggering: true
+          buildVersionToDownload: 'latest'
+          downloadType: 'single'
+          artifactName: 'AzureStaticWebArtifact'
+          downloadPath: '$(System.ArtifactsDirectory)'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
