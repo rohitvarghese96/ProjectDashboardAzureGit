@@ -40,7 +40,7 @@ stages:
         tag: 'azure456'
         assets: '$(System.ArtifactsDirectory)/AzureStaticWebArtifact/*'
         changeLogCompareToRelease: 'lastFullRelease'
-        changeLogType: 'commitBased''
+        changeLogType: 'commitBased'
               
     
 
