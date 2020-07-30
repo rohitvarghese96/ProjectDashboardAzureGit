@@ -35,15 +35,8 @@ stages:
             inputs:
               targetType: 'inline'
               script: |
-                git config --global user.email "rohitvarghese96@gmail.com"
-                git config --global user.name "rohitvarghese96"
-      
-                
                 Write-Host "Listing current files"
                 gci $Env:BUILD_SOURCESDIRECTORY
-                
-                git checkout master
-                git ls-files
               errorActionPreference: 'continue'
 
 
