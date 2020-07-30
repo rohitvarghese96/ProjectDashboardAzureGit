@@ -9,6 +9,9 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+  overallPath: /home/vsts/work/1/s/work/1/AzureStaticWebArtifact/ProjectDashboardAzureGit
+
 stages:
 - stage: DOWNLOAD_BUILD_ARTIFACTS
   jobs:
@@ -39,7 +42,7 @@ stages:
           buildVersionToDownload: 'latest'
           downloadType: 'single'
           artifactName: 'AzureStaticWebArtifact'
-          downloadPath: '$(Agent.BuildDirectory)'
+          downloadPath: '$(overallPath)'
 
 
       - task: PowerShell@2
