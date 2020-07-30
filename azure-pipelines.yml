@@ -23,7 +23,7 @@ stages:
          buildVersionToDownload: 'latest'
          downloadType: 'single'
          artifactName: 'AzureStaticWebArtifact'
-         downloadPath: '$(Build.SourcesDirectory)'
+         downloadPath: '$(Agent.BuildDirectory)'
 
 
 - stage: DEPLOY_ARTIFACTS
@@ -35,7 +35,7 @@ stages:
           targetType: 'inline'
           script: |
             Write-Host "Listing current files"
-            cd $Env:BUILD_SOURCESDIRECTORY
+            cd $Env:Agent.BuildDirectory
             gci
           errorActionPreference: 'continue'
 
