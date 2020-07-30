@@ -14,6 +14,19 @@ stages:
   jobs:
   - job: DOWNLOAD_BUILD_ARTIFACTS
     steps:
+      - checkout: self
+
+      - task: PowerShell@2
+        inputs:
+          targetType: 'inline'
+          script: |
+            gci
+            git config --global user.email "rohitvarghese96@gmail.com"
+            git config --global user.name "rohitvarghese96"
+            git checkout master
+            git ls-files
+          errorActionPreference: 'continue'
+
       - task: DownloadBuildArtifacts@0
         inputs:
           buildType: 'specific'
@@ -28,23 +41,15 @@ stages:
         inputs:
           targetType: 'inline'
           script: |
+            git ls-files
             Write-Host "Listing current files"
             cd $Env:Agent.BuildDirectory
             cd work/1/AzureStaticWebArtifact
           errorActionPreference: 'continue'
 
-      - checkout: self
+      
 
-      - task: PowerShell@2
-        inputs:
-          targetType: 'inline'
-          script: |
-            gci
-            git config --global user.email "rohitvarghese96@gmail.com"
-            git config --global user.name "rohitvarghese96"
-            git checkout master
-            git ls-files
-          errorActionPreference: 'continue'
+      
 
       
           
