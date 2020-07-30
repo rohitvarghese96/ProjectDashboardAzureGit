@@ -31,6 +31,9 @@ stages:
   - job: DEPLOY_ARTIFACTS
     steps:
     - script: |
+          git config --global user.email "rohitvarghese96@gmail.com"
+          git config --global user.name "rohitvarghese96"
+
           git checkout master
           git add --all
           git commit -m "Azure pipeline build"
