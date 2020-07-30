@@ -28,7 +28,7 @@ stages:
             cd AzureStaticWebArtifact
             git config --global user.email "rohitvarghese96@gmail.com"
             git config --global user.name "rohitvarghese96"
-            $ git config --global url."git@github.com:".insteadOf "https://github.com/"
+            git config --global url."git@github.com:".insteadOf "https://github.com/"
             git init
             git clone https://github.com/rohitvarghese96/ProjectDashboardAzureGit.git
             git ls-files
