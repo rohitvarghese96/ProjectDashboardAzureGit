@@ -23,7 +23,7 @@ stages:
           buildVersionToDownload: 'latest'
           downloadType: 'single'
           artifactName: 'AzureStaticWebArtifact'
-          downloadPath: '$(ArtifactStagingDirectory)'
+          downloadPath: '$(Build.ArtifactStagingDirectory)'
 
 
 - stage: DEPLOY_ARTIFACTS
