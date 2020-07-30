@@ -35,7 +35,8 @@ stages:
           targetType: 'inline'
           script: |
             Write-Host "Listing current files"
-            cd $Env:Agent.BuildDirectory/work/1/AzureStaticWebArtifact
+            cd $Env:Agent.BuildDirectory
+            cd work/1/AzureStaticWebArtifact
             gci
           errorActionPreference: 'continue'
 
