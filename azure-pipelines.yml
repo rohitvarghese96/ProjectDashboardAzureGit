@@ -23,24 +23,21 @@ stages:
           buildVersionToDownload: 'latest'
           downloadType: 'single'
           artifactName: 'AzureStaticWebArtifact'
-          downloadPath: '$(System.ArtifactsDirectory)'
+          downloadPath: '$(ArtifactStagingDirectory)'
 
 
 - stage: DEPLOY_ARTIFACTS
   jobs:
   - job: DEPLOY_ARTIFACTS
     steps:
-    - task: GitHubRelease@1
-      inputs:
-        gitHubConnection: 'rohitvarghese96'
-        repositoryName: 'rohitvarghese96/ProjectDashboardAzureGit'
-        action: 'create'
-        target: '$(Build.SourceVersion)'
-        tagSource: 'userSpecifiedTag'
-        tag: 'azure456'
-        assets: '$(System.ArtifactsDirectory)/AzureStaticWebArtifact/*'
-        changeLogCompareToRelease: 'lastFullRelease'
-        changeLogType: 'commitBased'
+    - script: |
+          git checkout master
+          git add --all
+          git commit -m "Azure pipeline build"
+          git push
+      displayName: 'npm install and build'
+
+
               
     
 
