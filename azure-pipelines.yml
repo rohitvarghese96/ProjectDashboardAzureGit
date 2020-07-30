@@ -30,16 +30,13 @@ stages:
   jobs:
   - job: DEPLOY_ARTIFACTS
     steps:
-    - task: GitHubRelease@1
-      inputs:
-        gitHubConnection: 'rohitvarghese96'
-        repositoryName: 'rohitvarghese96/ProjectDashboardAzureGit'
-        action: 'create'
-        target: '$(Build.SourceVersion)'
-        tagSource: 'gitTag'
-        assets: '$(System.ArtifactsDirectory)/*'
-        changeLogCompareToRelease: 'lastFullRelease'
-        changeLogType: 'commitBased'
+    - script: |
+          git checkout master
+          git add --all
+          git commit -m "Azure pipeline build"
+          git push
+      displayName: 'Git Commands'
+
       
       
 
