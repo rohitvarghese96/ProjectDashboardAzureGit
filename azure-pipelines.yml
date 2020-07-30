@@ -34,7 +34,10 @@ stages:
           git config --global user.email "rohitvarghese96@gmail.com"
           git config --global user.name "rohitvarghese96"
 
-          git checkout branch
+          Write-Host "Listing current files"
+          dir
+          
+          git checkout master
           git ls-files
 
 
