@@ -30,17 +30,7 @@ stages:
   jobs:
   - job: DEPLOY_ARTIFACTS
     steps:
-    - task: GitHubRelease@1
-      inputs:
-        gitHubConnection: 'rohitvarghese96'
-        repositoryName: 'rohitvarghese96/ProjectDashboardAzureGit'
-        action: 'create'
-        target: '$(Build.SourceVersion)'
-        tagSource: 'userSpecifiedTag'
-        tag: 'azure101'
-        assets: '$(Build.ArtifactStagingDirectory)/AzureStaticWebArtifact/*'
-        changeLogCompareToRelease: 'lastFullRelease'
-        changeLogType: 'commitBased'
+
 
 
               
