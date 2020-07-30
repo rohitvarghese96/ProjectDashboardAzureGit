@@ -49,8 +49,7 @@ stages:
         inputs:
           targetType: 'inline'
           script: |
-            cd $Env:Agent.BuildDirectory
-            cd work/1/AzureStaticWebArtifact
+            cd $(overallPath)
             gci
           errorActionPreference: 'continue'
 
