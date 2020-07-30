@@ -30,16 +30,17 @@ stages:
   jobs:
   - job: DEPLOY_ARTIFACTS
     steps:
-    - checkout: self
-    - script: |
-          git config --global user.email "rohitvarghese96@gmail.com"
-          git config --global user.name "rohitvarghese96"
-
-          git checkout master
-          git add --all
-          git commit -m "Azure pipeline build"
-          git push
-      displayName: 'npm install and build'
+    - task: GitHubRelease@1
+      inputs:
+        gitHubConnection: 'rohitvarghese96'
+        repositoryName: 'rohitvarghese96/ProjectDashboardAzureGit'
+        action: 'create'
+        target: '$(Build.SourceVersion)'
+        tagSource: 'userSpecifiedTag'
+        tag: 'azure456'
+        assets: '$(Build.ArtifactStagingDirectory)/AzureStaticWebArtifact/*'
+        changeLogCompareToRelease: 'lastFullRelease'
+        changeLogType: 'commitBased'
 
 
               
