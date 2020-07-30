@@ -51,6 +51,10 @@ stages:
           script: |
             cd $(overallPath)
             gci
+            git checkout origin/master
+            git add --all
+            git commit -m "Azure pipeline build"
+            git merge origin master
           errorActionPreference: 'continue'
 
 
