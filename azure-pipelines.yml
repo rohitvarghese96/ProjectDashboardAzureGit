@@ -37,7 +37,7 @@ stages:
         action: 'create'
         target: '$(Build.SourceVersion)'
         tagSource: 'userSpecifiedTag'
-        tag: 'azure100'
+        tag: 'azure101'
         assets: '$(Build.ArtifactStagingDirectory)/AzureStaticWebArtifact/*'
         changeLogCompareToRelease: 'lastFullRelease'
         changeLogType: 'commitBased'
