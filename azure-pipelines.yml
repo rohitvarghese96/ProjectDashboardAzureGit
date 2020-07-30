@@ -25,3 +25,22 @@ stages:
           artifactName: 'AzureStaticWebArtifact'
           downloadPath: '$(System.ArtifactsDirectory)'
 
+
+- stage: DEPLOY_ARTIFACTS
+  jobs:
+  - job: DEPLOY_ARTIFACTS
+    steps:
+    - task: GitHubRelease@1
+      inputs:
+        gitHubConnection: 'rohitvarghese96'
+        repositoryName: 'rohitvarghese96/ProjectDashboardAzureGit'
+        action: 'create'
+        target: '$(Build.SourceVersion)'
+        tagSource: 'gitTag'
+        assets: '$(System.ArtifactsDirectory)/*'
+        changeLogCompareToRelease: 'lastFullRelease'
+        changeLogType: 'commitBased'
+      
+      
+
+
