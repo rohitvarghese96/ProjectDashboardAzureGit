@@ -24,10 +24,11 @@ stages:
           targetType: 'inline'
           script: |
             Write-Host "Listing current files"
-            cd $overallPath
+            cd $(overallPath)
             gci
             git config --global user.email "rohitvarghese96@gmail.com"
             git config --global user.name "rohitvarghese96"
+            git switch -c coolBranch
           errorActionPreference: 'continue'
 
            
