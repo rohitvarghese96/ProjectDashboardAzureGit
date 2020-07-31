@@ -53,7 +53,8 @@ stages:
             gci
             git add --all
             git commit -m "Azure pipeline build"
-            git push origin HEAD:master
+            git checkout origin/master
+            git merge coolBranch
           errorActionPreference: 'continue'
 
 
