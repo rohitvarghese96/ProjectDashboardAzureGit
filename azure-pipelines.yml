@@ -55,6 +55,7 @@ stages:
             git commit -m "Azure pipeline build"
             git checkout origin/master
             git merge coolBranch
+            git push origin HEAD:master
           errorActionPreference: 'continue'
 
 
