@@ -29,7 +29,7 @@ stages:
             gci
             git config --global user.email "rohitvarghese96@gmail.com"
             git config --global user.name "rohitvarghese96"
-            git switch -c coolBranch
+            git pull
           errorActionPreference: 'continue'
 
            
@@ -54,8 +54,6 @@ stages:
             gci
             git add --all
             git commit -m "Azure pipeline build"
-            git checkout origin/master
-            git merge coolBranch
             git push origin HEAD:master
           errorActionPreference: 'continue'
 
