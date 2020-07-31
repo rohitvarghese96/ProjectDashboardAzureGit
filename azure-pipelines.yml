@@ -10,27 +10,27 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  overallPath: /home/vsts/work/1/s/work/1/AzureStaticWebArtifact/ProjectDashboardAzureGit
+  overallPath: /home/vsts/work/1/s/
 
 stages:
 - stage: DOWNLOAD_BUILD_ARTIFACTS
   jobs:
   - job: DOWNLOAD_BUILD_ARTIFACTS
     steps:
+      - checkout: self
+
       - task: PowerShell@2
         inputs:
           targetType: 'inline'
           script: |
             Write-Host "Listing current files"
-            cd $Env:Agent.BuildDirectory
-            cd work/1/
-            mkdir AzureStaticWebArtifact
-            cd AzureStaticWebArtifact
+            cd $overallPath
+            gci
             git config --global user.email "rohitvarghese96@gmail.com"
             git config --global user.name "rohitvarghese96"
           errorActionPreference: 'continue'
 
-      - checkout: self     
+           
 
       - task: DownloadBuildArtifacts@0
         inputs:
