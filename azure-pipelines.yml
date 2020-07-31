@@ -50,10 +50,9 @@ stages:
           script: |
             cd $(overallPath)
             gci
-            git checkout -b coolBranch
             git add --all
             git commit -m "Azure pipeline build"
-            git push origin HEAD:coolBranch
+            git push origin HEAD:master
           errorActionPreference: 'continue'
 
 
