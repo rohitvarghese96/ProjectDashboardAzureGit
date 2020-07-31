@@ -42,7 +42,7 @@ stages:
           specificBuildWithTriggering: true
           buildVersionToDownload: 'latest'
           downloadType: 'single'
-          artifactName: 'AzureStaticWebArtifact'
+          artifactName: 'build'
           downloadPath: '$(overallPath)'
 
 
