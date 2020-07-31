@@ -29,7 +29,7 @@ stages:
             gci
             git config --global user.email "rohitvarghese96@gmail.com"
             git config --global user.name "rohitvarghese96"
-            git pull
+            git pull origin master
           errorActionPreference: 'continue'
 
            
